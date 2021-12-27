@@ -1,0 +1,10 @@
+void setup(){
+size(500, 500);
+}
+
+void draw(){
+triangle(0,0, width,0, mouseX, mouseY);
+triangle(0,0, 0,height, mouseX, mouseY);
+triangle(width,0, width,height, mouseX, mouseY);
+triangle(0,height, width,height, mouseX, mouseY);
+}
