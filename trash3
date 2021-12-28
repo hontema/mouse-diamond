@@ -1,0 +1,17 @@
+void setup() {
+  size(500, 500);
+}
+
+void draw() {
+  background(0);
+  fill(255);
+  float y = sqrt((-1*(mouseX-width/2)*(mouseX-width/2))+(width/2)*(width/2));
+  //text (height*acos(mouseX), 20, 20);
+  text (y, 400, 400);
+  triangle(0, 0, width, 0, mouseX, y);
+  triangle(0, 0, 0, height, mouseX, mouseY);
+  fill(0, 0, 255);
+  triangle(width, 0, width, height, mouseX, mouseY);
+  fill(255, 0, 255);
+  triangle(0, height, width, height, width-mouseX, mouseY);
+}
