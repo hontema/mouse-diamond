@@ -1,0 +1,41 @@
+PImage image;
+PImage image2;
+
+void setup() {
+  size(500, 500);
+  image = loadImage("2.png");
+  image2 = loadImage("1.png");
+
+  image.resize(width, height);
+  image2.resize(width, height);
+
+  //image(image, width/2, height/2);
+
+  //image(image2, width/2, height/2);
+  //image(image, 0, 0, width, height);
+  //image(image2, 0, 0, width, height);
+}
+
+void draw() {
+  background(0);
+  fill(255);
+  float y = sqrt((-1*(mouseX-width/2)*(mouseX-width/2))+(width/2)*(width/2));
+  //text (height*acos(mouseX), 20, 20);
+  //text (y, 400, 400);
+  if (mouseX<width/2) {
+    image(image, 0, 0, width, height);
+  } else {  
+    image(image2, 0, 0, width, height);
+  }
+  fill(255-mouseX*255/500, mouseX*255/500, 0);
+  triangle(0, 0, width, 0, mouseX, y);
+  fill(0, 255-mouseX*255/500, mouseX*255/500);
+  triangle(0, 0, 0, height, y, width-mouseX);
+  fill(0, 255-mouseX*255/500, mouseX*255/500);
+  triangle(width, 0, width, height, height-y, mouseX);
+  fill(mouseX*255/500, 0, 255-mouseX*255/500);
+  triangle(0, height, width, height, width-mouseX, height-y);
+  fill(255-mouseX*255/500);
+  textSize(50);
+  text("NYN circus magic", 30, 450);
+}
